@@ -1,14 +1,13 @@
 SpreeMarketplace
 ================
 
-[![Build Status](https://travis-ci.org/JDutil/spree_marketplace.svg?branch=master)](https://travis-ci.org/JDutil/spree_marketplace)
-[![Code Climate](https://codeclimate.com/github/jdutil/spree_marketplace.png)](https://codeclimate.com/github/jdutil/spree_marketplace)
-[![Coverage Status](https://coveralls.io/repos/jdutil/spree_marketplace/badge.png?branch=master)](https://coveralls.io/r/jdutil/spree_marketplace)
-[![Dependency Status](https://gemnasium.com/jdutil/spree_marketplace.png?travis)](https://gemnasium.com/jdutil/spree_marketplace)
+*Notice:* This gem is a [fork of](https://github.com/spree-contrib/spree_marketplace) another fork, the code had broken database migrations issues, parts of it have been removed/updated.
 
-Spree Marketplace uses the [Spree Drop Ship](https://github.com/jdutil/spree_drop_ship) extension in order to enable using Spree as a Marketplace.  Mainly all that really means is that this extension enables sending payments to your drop ship suppliers through [Stripe](https://stripe.com) with their payment service.
 
-All the other main marketplace functionality - such as - vendors, product setup, shipment details etc... is all accomplished by [Spree Drop Ship](https://github.com/jdutil/spree_drop_ship).
+
+Spree Marketplace uses the Spree Drop Ship [(this version)](https://github.com/0bserver07/spree_drop_ship) extension in order to enable using Spree as a Marketplace.  Mainly all that really means is that this extension enables sending payments to your drop ship suppliers through [Stripe](https://stripe.com) with their payment service.
+
+All the other main marketplace functionality - such as - vendors, product setup, shipment details etc... is all accomplished by [Spree Drop Ship](hhttps://github.com/0bserver07/spree_drop_ship).
 
 Integrations
 ------------

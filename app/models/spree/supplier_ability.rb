@@ -5,7 +5,7 @@ module Spree
     def initialize(user)
       user ||= Spree.user_class.new
 
-      if user.supplier
+      if user.supplier and user.supplier.approved == true
         if SpreeMarketplace::Engine.spree_digital_available?
           # can [:admin, :manage], Spree::Digital, variant: { supplier_ids: user.supplier_id }
           can [:admin, :manage], Spree::Digital do |digital|
@@ -39,6 +39,7 @@ module Spree
         can [:admin, :manage, :stock], Spree::ProductProperty do |property|
           property.product.supplier_ids.include?(user.supplier_id)
         end
+
         can [:admin, :index, :read], Spree::Property
         can [:admin, :read], Spree::Prototype
         can [:admin, :manage, :read, :ready, :ship], Spree::Shipment, order: { state: 'complete' }, stock_location: { supplier_id: user.supplier_id }
@@ -56,6 +57,7 @@ module Spree
           variant.supplier_ids.include?(user.supplier_id)
         end
       end
+
 
       if SpreeMarketplace::Config[:allow_signup]
         can :create, Spree::Supplier

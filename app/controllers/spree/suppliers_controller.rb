@@ -39,7 +39,7 @@ class Spree::SuppliersController < Spree::StoreController
 
     if @supplier.save
       flash[:success] = Spree.t('supplier_registration.create.success')
-      redirect_to spree.admin_products_path
+      redirect_to '/'
     else
       render :new
     end

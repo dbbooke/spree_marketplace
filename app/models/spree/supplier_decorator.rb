@@ -2,9 +2,32 @@ Spree::Supplier.class_eval do
 
 	attr_accessor :first_name, :last_name, :merchant_type
 
+  #==========================================
+  # Associations
+
 	has_many :bank_accounts, class_name: 'Spree::SupplierBankAccount'
 	has_attached_file :profile_picture, dependent: :destroy, :styles => {:medium => "300x300>", :thumb => "100x100>"}, :path => ":rails_root/public/assets/profile_pictures/:style/:filename", :url => "/assets/profile_pictures/:style/:filename"
- validates_attachment :profile_picture, :content_type => { :content_type => /\Aimage\/.*\Z/ }, :size => { :in => 0..500.kilobytes }
+
+  has_many   :supplier_prototypes
+  has_many   :prototypes, through: :supplier_prototypes
+
+  has_many   :supplier_properties
+  has_many   :properties, through: :supplier_properties
+
+
+  has_many   :supplier_option_types
+  has_many   :option_types, through: :supplier_option_types
+
+
+  # has_many   :spree_supplier_prod_opt_types
+  # has_many   :prototypes, through: :spree_supplier_prod_opt_types
+
+
+
+
+  #==========================================
+
+  validates_attachment :profile_picture, :content_type => { :content_type => /\Aimage\/.*\Z/ }, :size => { :in => 0..500.kilobytes }
 
   validates :tax_id, length: { is: 9, allow_blank: true }
 

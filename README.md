@@ -84,4 +84,4 @@ TODO
 - Refactor to not rely on stripe & be interchangeable.
 - suppliers should be able to manage option types and values (unsure about whether to scope to supplier or not, but thats probably best solution for everyone)
 
-Copyright (c) 2013-2014+ [Jeff Dutil](https://github.com/jdutil), released under the New BSD License
+

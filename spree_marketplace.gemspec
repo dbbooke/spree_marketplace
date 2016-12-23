@@ -3,7 +3,7 @@
 
 Gem::Specification.new do |s|
   s.name = "spree_marketplace"
-  s.version = "3.1.0"
+  s.version = "3.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.homepage = "https://github.com/jdutil/spree_marketplace"
   s.required_ruby_version = Gem::Requirement.new(">= 2.0.0")
   s.requirements = ["none"]
-  s.rubygems_version = "2.4.5"
+  s.rubygems_version = "2.4.4"
   s.summary = "Enable Spree to work as a Marketplace."
 
   if s.respond_to? :specification_version then

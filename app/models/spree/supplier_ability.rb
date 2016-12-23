@@ -2,35 +2,16 @@ module Spree
   class SupplierAbility
     include CanCan::Ability
 
-    require "byebug"
     def initialize(user)
       user ||= Spree.user_class.new
 
       if user.supplier and user.supplier.approved == true
 
-       # conditions = {supplier_id: user.supplier_id}
-
-        # can :products, :review_admissions
-
-       # can :read, :all
-        # can [:admin, :manage,:index], Spree::Review do |product|
-        #   product.supplier_ids.include?(user.supplier_id)
-        # end
-
-        # can [:admin, :manage, :index], Spree::Review do |product|
-        #   product.supplier_ids.include?(user.supplier_id)
-        # end
-        # can [:admin,:manage], Spree::Review
 
         can [:admin,:manage,:index], Spree::Supplier, id: user.supplier_id
 
-
-
         # can [:create], Spree::AdmissionReview
         # can [:admin, :manage], Spree::AdmissionReview, supplier: { supplier_id: user.supplier_id }
-
-
-
 
         can [:admin, :manage, :stock,:admission], Spree::Product do |product|
           product.supplier_ids.include?(user.supplier_id)

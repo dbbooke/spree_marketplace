@@ -19,7 +19,7 @@ module Spree
         can [:admin, :create, :index,:admission], Spree::Product
 
         can [:create], Spree::Prototype
-        can [:admin, :manage], Spree::Prototype, id: user.supplier.prototypes.pluck(:id)
+        can [:admin, :manage], Spree::Prototype#, id: user.supplier.prototypes.pluck(:id)
 
         # Action for listing?
         can [:create], Spree::Property

@@ -3,7 +3,7 @@
 <% end -%>
 <%= render 'spree/shared/error_messages', :target => @supplier %>
 
-<div class="col-md-6 col-md-offset-3">
+<div class="col-md-12">
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<h1><%= Spree.t(:supplier_signup) %></h1>
@@ -19,7 +19,12 @@
 				<%= form.submit Spree.t(:signup), :class => 'btn btn-lg btn-success btn-block' %>
 				</p>
 			</div>
+
 		<% end %>
+
+
+
+
 			<div class="text-center">
 				<%= Spree.t('or') %> <%= link_to Spree.t('cancel'), spree.account_path %>
 			</div>

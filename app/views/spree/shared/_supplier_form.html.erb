@@ -1,4 +1,5 @@
-<fieldset id="supplier-address" data-hook>
+<div id="supplier-address" class="col-md-6" data-hook>
+	<legend align="center"><%= Spree.t('supplier_details') %></legend>
 	<div class="form-group">
 		<%= form.text_field :name, :class => 'form-control', :placeholder => "Brand Name" %>
 	</div>
@@ -29,16 +30,27 @@
 		<%= form.text_field :tax_id, :class => 'form-control', :placeholder => 'Tax Id' %>
 	</div>
 
-	<div class="form-group">
+	<hr>
+
+<div class="form-group">
 		<%= form.check_box :agree_tos, :class => 'form-control' %>
 		<%= form.label :agree_tos, "I have read and agree to the terms of service." %>
-
 		<%= form.check_box :agree_tos_violate, :class => 'form-control' %>
 		<%= form.label :agree_tos_violate, " I understand that I can only list items that are in my own physical inventory, ready to be shipped, and are not dropshipped by a third party supplier." %>
-
 		<%= form.check_box :agree_not_dropshiped, :class => 'form-control' %>
 		<%= form.label :agree_not_dropshiped, "I understand that if I violate any of the terms outlined above and in our ToS, As Seen On TV reserves the right to remove my products from their website and permanently withhold any outstanding payments I am due." %>
-
 	</div>
+</div>
 
-</fieldset>
+<div class="col-md-6">
+
+	<div data-hook="supplier_address_wrapper" class="">
+		<fieldset class="no-border-bottom">
+			<legend align="center"><%= Spree.t('contact_address') %></legend>
+			<%= form.fields_for :address do |contact_form| %>
+			<%= render :partial => 'spree/admin/shared/address_form', :locals => { :f => contact_form, :name => Spree.t(:contact_address), :type => "shipping" } %>
+			<% end %>
+		</fieldset>
+	</div>
+</div>
+

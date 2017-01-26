@@ -48,7 +48,7 @@ class Spree::SuppliersController < Spree::StoreController
   def new
     authorize! :create, Spree::Supplier
     @supplier = Spree::Supplier.new
-    @supplier.address = Spree::Address.default
+    @supplier.address = Spree::Address.default unless @supplier.address.present?
   end
 
   private

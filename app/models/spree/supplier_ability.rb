@@ -8,15 +8,17 @@ module Spree
       if user.supplier and user.supplier.approved == true
 
 
-        can [:admin,:manage,:index], Spree::Supplier, id: user.supplier_id
+        can [:admin,:manage], Spree::Supplier, id: user.supplier_id
+        cannot [:index], Spree::Supplier
 
         # can [:create], Spree::AdmissionReview
         # can [:admin, :manage], Spree::AdmissionReview, supplier: { supplier_id: user.supplier_id }
 
-        can [:admin, :manage, :stock,:admission], Spree::Product do |product|
+        can [:admin, :manage, :stock], Spree::Product do |product|
           product.supplier_ids.include?(user.supplier_id)
         end
-        can [:admin, :create, :index,:admission], Spree::Product
+
+        can [:admin, :create, :index], Spree::Product
 
         can [:create], Spree::Prototype
         can [:admin, :manage], Spree::Prototype#, id: user.supplier.prototypes.pluck(:id)
@@ -43,7 +45,6 @@ module Spree
         can :create, Spree::StockMovement
 
 
-        can [:admin, :update], Spree::Supplier, id: user.supplier_id
 
         # TODO: Want this to be inline like:
         # can [:admin, :manage], Spree::Variant, supplier_ids: user.supplier_id

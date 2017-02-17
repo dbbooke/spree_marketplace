@@ -23,6 +23,9 @@ module Spree
         can [:create], Spree::Prototype
         can [:admin, :manage], Spree::Prototype#, id: user.supplier.prototypes.pluck(:id)
 
+        # can [:admin, :manage,:index], Spree::Taxon
+        # can [:admin, :manage,:index], Spree::Taxonomy
+
         # Action for listing?
         can [:create], Spree::Property
         can [:admin, :index], Spree::Property, id: user.supplier.properties.pluck(:id)

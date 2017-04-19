@@ -4,6 +4,7 @@ module Spree
 
     def initialize(user)
       user ||= Spree.user_class.new
+        can [:manage, :edit,:update,:subscribe], Spree::CustomerEmailOption
 
       if user.supplier and user.supplier.approved == true
 
@@ -33,6 +34,8 @@ module Spree
         can [:create], Spree::OptionType
         can [:admin, :manage], Spree::OptionType, id: user.supplier.option_types.pluck(:id)
 
+
+        # cannot [:admin,:manage, :index, :campaign, :list], Spree::Marketing
 
 
         can [:admin, :index, :read], Spree::ShippingCategory

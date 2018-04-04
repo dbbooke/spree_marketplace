@@ -4,7 +4,7 @@ module Spree
 
     def initialize(user)
       user ||= Spree.user_class.new
-        can [:manage, :edit,:update,:subscribe], Spree::CustomerEmailOption
+        can [:manage, :edit,:update,:subscribe]
 
       if user.supplier and user.supplier.approved == true
 
